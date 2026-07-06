@@ -40,7 +40,7 @@ do
   helm -n $SDWNS install $vnf$NETNUM http://127.0.0.1:8080/$vnf$chart_suffix
 done
 
-for i in {1..30}; do echo -n "."; sleep 1; done
+for i in {1..45}; do echo -n "."; sleep 1; done
 echo ''
 
 export VACC="deploy/access$NETNUM-accesschart"

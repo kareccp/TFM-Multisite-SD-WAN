@@ -23,6 +23,14 @@ sudo lxc-attach -n r2 -- vtysh \
 -c "write memory"
 
 echo "## Esperando vecindad OSPF r2-CPE2"
-sleep 15
+for i in {1..12}
+do
+  if sudo lxc-attach -n r2 -- vtysh -c "show ip ospf neighbor" | grep -q "Full"; then
+    sudo lxc-attach -n r2 -- vtysh -c "show ip ospf neighbor"
+    exit 0
+  fi
+  echo "Esperando OSPF... intento $i"
+  sleep 15
+done
 
 sudo lxc-attach -n r2 -- vtysh -c "show ip ospf neighbor"

@@ -8,7 +8,7 @@ for NETNUM in {1..2}
 do
   for VNF in access cpe wan
   do
-    helm -n $SDWNS uninstall $VNF$NETNUM 
+    helm -n $SDWNS uninstall $vnf$NETNUM 2>/dev/null || true
   done
 done
 
