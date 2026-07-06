@@ -105,6 +105,7 @@ Comprobar que se puede acceder al repositorio:
 
 ```bash
 curl http://127.0.0.1:8080/index.yaml
+curl -I http://127.0.0.1:8080/accesschart-0.1.0.tgz
 ```
 
 debe aparecer información correspondiente a: 
@@ -143,3 +144,24 @@ Validar que el escenario se encuentre desplegado y funcionando:
 ```
 
 Si todas las comprobaciones son correctas, el escenario habrá desplegado correctamente las dos sedes con conectividad OSPF, SD-WAN y acceso a Internet.
+
+# 7. Limpieza y redespliegue
+
+Si durante el despliegue aparecen errores o se desea comenzar desde un escenario limpio, se recomienda detener completamente el escenario antes de volver a desplegarlo mediante el script
+
+```bash
+./stop_rdsv.sh
+```
+Este script elimina el escenario VNX y libera los recursos utilizados durante el despliegue.
+
+En el caso de persistencia de errores relacionados con Kubernetes, por ejemplo pods en estado inconsistente o incidencias con Calico/Mults, se puede utilizar el script de reparación
+
+```bash
+./fix_k8s_network.sh
+```
+Una vez finalizada la limpieza, vuelva a ejecutar el despliegue completo:
+
+```bash
+./start_full_sedes.sh
+```
+Nota: En una instalación limpia no es necesario ejecutar estos scripts. Se incluyen como herramientas de recuperación en caso de que al realizar varios despliegues consecutivos se produzcan errores en Kubernetes.
