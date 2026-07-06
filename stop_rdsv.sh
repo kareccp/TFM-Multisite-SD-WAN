@@ -27,7 +27,8 @@ $KUBECTL delete replicasets -n $SDWNS --all 2>/dev/null
 $KUBECTL delete services -n $SDWNS --all 2>/dev/null
 
 echo "## Cerrando ventanas/consolas VNX"
-cd ~/shared/rdsv-final/vnx
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/vnx"
 sudo vnx -f sdedge_nfv.xml --destroy
 
 echo "## Estado final"

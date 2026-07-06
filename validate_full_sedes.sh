@@ -1,7 +1,9 @@
 #!/bin/bash
 set +e
 
-cd ~/shared/rdsv-final
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
 export SDWNS=rdsv
 
 echo " VALIDACIÓN ESCENARIO COMPLETO DOS SEDES"
