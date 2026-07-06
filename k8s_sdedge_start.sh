@@ -36,7 +36,7 @@ echo "### 0.2 Creación de contenedores"
 chart_suffix="chart-0.1.0.tgz"
 for vnf in access cpe wan
 do
-  echo '#### $vnf$NETNUM'
+  echo "#### ${vnf}${NETNUM}"
   helm -n $SDWNS install $vnf$NETNUM http://127.0.0.1:8080/$vnf$chart_suffix
 done
 

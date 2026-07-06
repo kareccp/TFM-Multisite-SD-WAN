@@ -103,4 +103,6 @@ curl -X POST -H "Content-Type: application/json" -d @json/sdedge$NETNUM/to-voip.
 
 echo "--"
 echo "sdedge$NETNUM: abrir navegador para ver sus flujos Openflow:"
-echo "firefox http://localhost:$PORTWAN/home/ &"
+echo
+echo "FlowManager disponible en:"
+echo "http://localhost:$PORTWAN/home/"
