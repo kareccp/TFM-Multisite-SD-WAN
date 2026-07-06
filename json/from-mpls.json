@@ -1,0 +1,3 @@
+{"dpid":1,"operation":"add","priority":45001,"cookie":202002,"match":{"in_port":2},"actions":[{"WRITE_ACTIONS":["OUTPUT:1"]}]}
+
+

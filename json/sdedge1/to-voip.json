@@ -1,0 +1,1 @@
+{"dpid":1,"operation":"add","priority":45002,"cookie":202011,"match":{"in_port":1,"eth_type":2048,"ipv4_dst":"10.20.2.192/255.255.255.192"},"actions":[{"WRITE_ACTIONS":["OUTPUT:2"]}]}
